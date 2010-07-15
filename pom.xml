@@ -113,7 +113,7 @@
       </dependency>
 
       <!-- Optional, but highly recommended -->
-      <!-- Arquillian allows you to test enterprise code such as EJBs and Transactional JPA from JUnit/TestNG -->
+      <!-- Arquillian allows you to test enterprise code such as EJBs and Transactional(JTA) JPA from JUnit/TestNG -->
       <dependency>
          <groupId>org.jboss.arquillian</groupId>
          <artifactId>arquillian-junit</artifactId>
