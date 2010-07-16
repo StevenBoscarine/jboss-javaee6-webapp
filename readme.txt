@@ -9,10 +9,10 @@
  This is your project! It's a sample, deployable Maven 2 project to help you
  get your foot in the door developing with Java EE 6. This project is setup to
  allow you to create a compliant Java EE 6 application using JSF 2.0, CDI 1.0,
- EJB 3.1 and JPA 2.0) that can run on a certified application server (Complete
- or Web Profile). It includes a persistence unit and some sample persistence
- and transaction code to help you get your feet wet with database access in
- enterprise Java. 
+ EJB 3.1, JPA 2.0 and Bean Validation 1.0) that can run on a certified
+ application server (Complete or Web Profile). It includes a persistence unit
+ and some sample persistence and transaction code to help you get your feet wet
+ with database access in enterprise Java. 
 
  System requirements
  ===================
@@ -30,8 +30,12 @@
  Deploying the application
  =========================
 
- To deploy the application to JBoss AS (standalone), first make sure that the
- JBOSS_HOME environment variable points to a JBoss AS 6.0 installation.
+ To deploy the application, first produce the archive to deploy:
+
+  mvn package
+
+ If you want To deploy the application on JBoss AS (standalone), make sure that
+ your JBOSS_HOME environment variable points to a JBoss AS 6.0 installation.
 
  Alternatively, you can set the location of JBoss AS using the following
  profile defintion in the .m2/settings.xml file in your home directory:
@@ -62,7 +66,8 @@
   mvn package jboss:hard-deploy
 
  This will deploy two artifacts, target/jboss-javaee6-webapp-src.war and
- default-ds.xml. The latter installs a data source named jdbc/__default.
+ default-ds.xml. The latter installs a data source named jdbc/__default,
+ so both JBoss AS and GlassFish have a data source with the same name.
 
  You can also set jboss.home on the commandline:
 
@@ -80,25 +85,27 @@
 
   mvn jboss:hard-undeploy
 
- If you want to deploy to GlassFish, first produce the archive to deploy:
-
-  mvn package
- 
  There are several ways to deploy the archive to GlassFish. The recommended
  approach is to open the project in NetBeans 6.8, right-click on the project
  and select "Run" from the context menu. That starts JavaDB, GlassFish and
- deploys the application.
+ deploys the application. NetBeans then provides incremental deployment of web
+ resources.
 
  You can also start GlassFish from the commandline. Change to the glassfish/bin
- directory in the GlassFish install root and run these three commands:
+ directory in the GlassFish install root and run these three commands (leading
+ ./ not required on Windows):
 
-  asadmin start-database
-  asadmin start-domain domain1
+  ./asadmin start-database
+  ./asadmin start-domain domain1
 
  Now you can either deploy the target/jboss-javaee6-webapp-src.war through the
  web-based GlassFish admininstration console, or you can again use asadmin:
 
-  asadmin /path/to/project/target/jboss-javaee6-webapp-src.war
+  ./asadmin deploy /path/to/project/target/jboss-javaee6-webapp-src.war
+
+ To undeploy the application, run:
+
+ ./asadmin undeploy jboss-javaee6-webapp-src
 
  Running the Arquillian tests
  ============================
@@ -139,14 +146,21 @@
 
  To import into Eclipse, you first need to install the m2eclipse plugin. To get
  started, add the m2eclipse update site (http://m2eclipse.sonatype.org/update/)
- to Eclipse and install the m2eclipse plugin and required dependencies. Once
- that is installed, you'll be ready to import the project into Eclipse.
+ to Eclipse (or use the Help > Eclipse Marketplace...) and install the
+ m2eclipse plugin and required dependencies. Once that's installed, you'll be
+ ready to import the project into Eclipse.
 
- Select File > Import... and select "Import... > Maven Projects" and select
- your project directory. m2eclipse should take it from there.
+ Select File > Import... and select "Existing Maven Projects" and navigate to
+ your project directory. Click Finish and m2eclipse will take it from there.
 
  Once in the IDE, you can execute the Maven commands through the IDE controls
  to deploy the application to a container.
+
+ NOTE: If the project shows a compile error after import, it's likely that the
+ generated sources are not on the Eclipse project classpath. Right click the
+ project and select:
+
+ Maven > Update Project Configuration
 
  Downloading the sources and Javadocs
  ====================================

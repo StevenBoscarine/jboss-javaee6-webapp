@@ -86,12 +86,20 @@
       </dependency>
 
       <!-- Need to use the injectable logger in Weld Extensions -->
-      <!-- Both JBoss AS and GlassFish provide this API -->
+      <!-- Switch scope to provided if server provides slf4j; JBoss AS provides it; GlassFish provides it if you have the Hibernate JPA provider installed -->
       <dependency>
          <groupId>org.slf4j</groupId>
          <artifactId>slf4j-api</artifactId>
          <version>1.5.10</version>
-         <scope>provided</scope>
+         <scope>compile</scope>
+      </dependency>
+
+      <!-- Remove if server provides slf4j; JBoss AS provides it; GlassFish provides it if you have the Hibernate JPA provider installed -->
+      <dependency>
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-simple</artifactId>
+         <version>1.5.10</version>
+         <scope>runtime</scope>
       </dependency>
 
       <!-- JSR-303 (Bean Validation) Implementation -->
@@ -141,6 +149,12 @@
                   <phase>generate-sources</phase>
                   <configuration>
                      <compilerArgument>-proc:only</compilerArgument>
+                     <!-- If your app has multiple packages, use this include filter to execute the processor only on the package containing your entities -->
+                     <!--
+                     <includes>
+                        <include>**/model/*.java</include>
+                     </includes>
+                     -->
                   </configuration>
                   <goals>
                      <goal>compile</goal>
@@ -172,14 +186,14 @@
 
    <profiles>
       <profile>
-         <!-- The default profile skips all tests, though you can tune it to run just unit tests -->
-         <!-- Seperate profiles are provided for running all tests, including Arquillian tests, which execute in the specified container -->
+         <!-- The default profile skips all tests, though you can tune it to run just unit tests based on a custom pattern -->
+         <!-- Seperate profiles are provided for running all tests, including Arquillian tests that execute in the specified container -->
          <id>default</id>
          <activation>
             <activeByDefault>true</activeByDefault>
          </activation>
          <dependencies>
-            <!-- Java EE Specification POM -->
+            <!-- Java EE 6 Specification POM -->
             <!-- This one dependency imports all APIs available for a Java EE 6.0 application -->
             <dependency>
                <groupId>org.jboss.spec</groupId>
@@ -220,7 +234,7 @@
       </profile>
 
       <profile>
-         <!-- An Arquillian testing profile that executes tests in GlassFish Embedded -->
+         <!-- An optional Arquillian testing profile that executes tests in GlassFish Embedded -->
          <!-- Run with 'mvn test -Pglassfish-embedded-3' -->
          <id>glassfish-embedded-3</id>
          <dependencies>
@@ -269,7 +283,7 @@
          </build>
       </profile>
       <profile>
-         <!-- An Arquillian testing profile that executes tests in a remote JBoss AS instance -->
+         <!-- An optional Arquillian testing profile that executes tests in a remote JBoss AS instance -->
          <!-- Run with 'mvn test -Pjbossas-remote-6' -->
          <id>jbossas-remote-6</id>
          <dependencies>
@@ -279,7 +293,7 @@
                <version>${arquillian.version}</version>
                <scope>test</scope>
             </dependency>
-            <!-- Java EE Specification POM -->
+            <!-- Java EE 6 Specification POM -->
             <!-- This one dependency imports all APIs available for a Java EE 6.0 application -->
             <dependency>
                <groupId>org.jboss.spec</groupId>
