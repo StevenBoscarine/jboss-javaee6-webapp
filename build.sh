@@ -23,6 +23,8 @@ echo Patching generated archetype...
 sed -i 's;;;' $ARCHETYPE_RESOURCES_DIR/pom.xml
 sed -i 's;;;' $ARCHETYPE_RESOURCES_DIR/readme.txt
 sed -i 's;<name>jboss-javaee6-webapp-src</name>;<name>${name}</name>;' $ARCHETYPE_RESOURCES_DIR/pom.xml
+# remove local file that NetBeans add to source project
+rm -f $ARCHETYPE_RESOURCES_DIR/src/main/webapp/WEB-INF/sun-web.xml
 # could set the release version at this point, if specified
 if [ ! -z $1 ] && [ "$1" = "install" ]; then
    echo Installing archetype...
