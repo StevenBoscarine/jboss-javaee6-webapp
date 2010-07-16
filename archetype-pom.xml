@@ -73,8 +73,8 @@
   </build>
 
   <scm>
-    <connection>scm:svn:http://anonsvn.jboss.org/repos/weld/archetypes/javaee6-webapp/tags/1.0.1-SNAPSHOT</connection>
-    <developerConnection>scm:svn:https://svn.jboss.org/repos/weld/archetypes/javaee6-webapp/tags/1.0.1-SNAPSHOT</developerConnection>
-    <url>http://fisheye.jboss.org/browse/weld/archetypes/javaee6-webapp/tags/1.0.1-SNAPSHOT</url>
+    <connection>scm:svn:http://anonsvn.jboss.org/repos/weld/archetypes/javaee6-webapp/trunk</connection>
+    <developerConnection>scm:svn:https://svn.jboss.org/repos/weld/archetypes/javaee6-webapp/trunk</developerConnection>
+    <url>http://fisheye.jboss.org/browse/weld/archetypes/javaee6-webapp/trunk</url>
   </scm>
 </project>
