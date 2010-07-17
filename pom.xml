@@ -28,7 +28,7 @@
    <repositories>
       <!-- The JBoss Community public repository is a composite repository of several major repositories -->
       <!-- see http://community.jboss.org/wiki/MavenGettingStarted-Users -->
-      <!-- At the time of writing, Arquillian and the JBoss Spec POMs are only in the JBoss Community public repository (not Maven central) -->
+      <!-- At the time of writing, Arquillian and the JBoss Java EE specification POMs are only in the JBoss Community public repository (not Maven central) -->
       <repository>
          <id>jboss-public-repository</id>
          <name>JBoss Repository</name>
@@ -70,6 +70,7 @@
          <artifactId>hibernate-jpamodelgen</artifactId>
          <version>1.0.0.Final</version>
          <scope>provided</scope>
+         <!-- Excluded because it's provided by the Java EE 6 dependencies -->
          <exclusions>
             <exclusion>
                <groupId>org.hibernate.javax.persistence</groupId>
@@ -193,7 +194,7 @@
             <activeByDefault>true</activeByDefault>
          </activation>
          <dependencies>
-            <!-- Java EE 6 Specification POM -->
+            <!-- Java EE 6 API dependency -->
             <!-- This one dependency imports all APIs available for a Java EE 6.0 application -->
             <dependency>
                <groupId>org.jboss.spec</groupId>
@@ -293,7 +294,7 @@
                <version>${arquillian.version}</version>
                <scope>test</scope>
             </dependency>
-            <!-- Java EE 6 Specification POM -->
+            <!-- Java EE 6 API dependency -->
             <!-- This one dependency imports all APIs available for a Java EE 6.0 application -->
             <dependency>
                <groupId>org.jboss.spec</groupId>
