@@ -11,4 +11,7 @@ import javax.ws.rs.core.Application;
  * NOTE As of JBoss AS 6.0.0.M3, JAX-RS does not activate properly.
  */
 @ApplicationPath("/rest")
-public class JaxRsActivator extends Application{/* left blank intentionally */}
+public class JaxRsActivator extends Application
+{
+   /* class body intentionally left blank */
+}

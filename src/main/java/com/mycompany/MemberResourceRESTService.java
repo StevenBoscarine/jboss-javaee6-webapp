@@ -10,7 +10,7 @@ import javax.ws.rs.PathParam;
 /**
  * JAX-RS Example
  * 
- *  This class produces a RESTful service to read the contents of the members table.   
+ * This class produces a RESTful service to read the contents of the members table.   
  */
 @Path("/members")
 @RequestScoped
@@ -24,7 +24,7 @@ public class MemberResourceRESTService
    @GET
    public List<Member> listAllMembers()
    {
-      @SuppressWarnings("unchecked")   //Force IDE to ignore warnings about "genericizing" the results of this query
+      @SuppressWarnings("unchecked") // Force IDE to ignore warnings about "genericizing" the results of this query
       final List<Member> results = em.createQuery(ALL_MEMBERS).getResultList();
       return results;
    }
