@@ -105,6 +105,9 @@
   ./asadmin start-database
   ./asadmin start-domain domain1
 
+ NOTE:
+ NetBeans will start the Derby database automatically when it starts GlassFish.
+
  Now you can either deploy the target/jboss-javaee6-webapp-src.war through the
  web-based GlassFish admininstration console, or you can again use asadmin:
 
