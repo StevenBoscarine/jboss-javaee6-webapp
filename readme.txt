@@ -19,7 +19,7 @@
 
  All you need to run this project is Java 5.0 (Java SDK 1.5) or greator and
  Maven 2.0.10 or greater. This application is setup to be run on a Java EE 6
- application server. We've tested it on GlassFish 3 and JBoss AS 6.0.
+ application server. We've tested it on GlassFish 3.0.1 and JBoss AS 6.0.0.M3.
 
  Please note that Maven 2 project needs to use the JBoss Nexus Maven repository
  because there are certain Java EE API JARs that are not yet publised to the
@@ -66,8 +66,12 @@
   mvn package jboss:hard-deploy
 
  This will deploy two artifacts, target/jboss-javaee6-webapp-src.war and
- default-ds.xml. The latter installs a data source named jdbc/__default,
- so both JBoss AS and GlassFish have a data source with the same name.
+ default-ds.xml.
+ 
+ NOTE:
+ If you deploy the WAR manually, don't forget to also deploy default-ds.xml!
+ The default-ds.xml file installs a data source named jdbc/__default, so both
+ JBoss AS and GlassFish have a data source with the same name.
 
  You can also set jboss.home on the commandline:
 
@@ -75,12 +79,8 @@
 
  Start JBoss AS. The application will be running at the following URL:
 
-  http://localhost:8080/jboss-javaee6-webapp-src/home.jsf
+  http://localhost:8080/jboss-javaee6-webapp-src/
 
- Note: If you are using JBoss AS 6.0.0.M3, you may encounter the exception
- described in https://jira.jboss.org/browse/WELD-448 if you attempt to access
- to root context path (i.e., /).
-  
  To undeploy from JBoss AS, run this command:
 
   mvn jboss:hard-undeploy
@@ -153,14 +153,21 @@
  Select File > Import... and select "Existing Maven Projects" and navigate to
  your project directory. Click Finish and m2eclipse will take it from there.
 
- Once in the IDE, you can execute the Maven commands through the IDE controls
- to deploy the application to a container.
+ Additional configuration is required to get Eclipse to generate the JPA
+ metamodel. The archetype includes the necessary Eclipse config files in your project.
+ To enable this feature, right click on the project and select:
 
- NOTE: If the project shows a compile error after import, it's likely that the
- generated sources are not on the Eclipse project classpath. Right click the
- project and select:
+ Properties > Java Compiler > Annotation Processing
 
- Maven > Update Project Configuration
+ Check "Enable annotation processing" then click OK and OK again when your are
+ prompted to run a project build.
+
+ You can verify your configuration by referring to the Hibernate JPA documentation.
+
+ http://docs.jboss.org/hibernate/stable/jpamodelgen/reference/en-US/html_single/#d0e319
+
+ Once the project is imported into the IDE, you can execute the Maven commands
+ through the IDE controls to deploy the application to a container.
 
  Downloading the sources and Javadocs
  ====================================

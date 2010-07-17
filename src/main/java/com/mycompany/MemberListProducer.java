@@ -40,8 +40,9 @@ public class MemberListProducer
    {
       CriteriaBuilder cb = em.getCriteriaBuilder();
       CriteriaQuery<Member> criteria = cb.createQuery(Member.class);
-      Root<Member> widget = criteria.from(Member.class);
-      criteria.select(widget).orderBy(cb.asc(widget.get(Member_.name)));
+      Root<Member> member = criteria.from(Member.class);
+      // replace "name" with Member_.name if the JPA metamodel has been generated
+      criteria.select(member).orderBy(cb.asc(member.get("name")));
       members = em.createQuery(criteria).getResultList();
    }
 }
