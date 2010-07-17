@@ -24,9 +24,7 @@ public class MemberListProducer
    private List<Member> members;
 
    @Produces
-   @Named
-   // This annotation allows us to access this list via name "members" in
-   // facelets UI via EL.
+   @Named   // This annotation allows us to access this list via name "members" in the facelets UI via EL
    public List<Member> getMembers()
    {
       return members;
