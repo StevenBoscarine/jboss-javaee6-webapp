@@ -22,7 +22,10 @@ public class MemberRegistrationTest
    public static Archive<?> createTestArchive() {
       return ShrinkWrap.create(WebArchive.class, "test.war")
          .addClasses(Member.class, MemberRegistration.class, MemberRepository.class, MemberRepositoryProducer.class)
-         .addPackage(Logger.class.getPackage())
+         .addLibraries(
+               MavenArtifactResolver.resolve("org.slf4j:slf4j-api:1.5.10"),
+               MavenArtifactResolver.resolve("org.slf4j:slf4j-simple:1.5.10")
+         )
          .addWebResource("test-persistence.xml", "classes/META-INF/persistence.xml")
          .addWebResource(new ByteArrayAsset(new byte[0]), "beans.xml");
    }
