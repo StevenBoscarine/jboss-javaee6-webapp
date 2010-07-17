@@ -10,7 +10,7 @@ import javax.ws.rs.PathParam;
 /**
  * JAX-RS Example
  * 
- *  This class alone produces a RESTful service to read the contents of the members table.   
+ *  This class produces a RESTful service to read the contents of the members table.   
  */
 @Path("/members")
 @RequestScoped
