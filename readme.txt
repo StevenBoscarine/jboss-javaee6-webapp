@@ -77,7 +77,14 @@
 
   mvn package jboss:hard-deploy -Djboss.home=/path/to/jboss-as-6.0.0.M3
 
- Start JBoss AS. The application will be running at the following URL:
+ To summarize, you have three options for specifying the path to your JBoss AS
+ installation:
+
+ 1. Set the JBOSS_HOME environment variable (e.g., export JBOSS_HOME=/path/to/jboss-as)
+ 2. Define the jboss.home Maven property in $HOME/.m2/settings.xml
+ 3. Override the jboss.home Maven property from the commandline using -Djboss.home=/path/to/jboss-as
+
+ Now start JBoss AS. The application will be running at the following URL:
 
   http://localhost:8080/jboss-javaee6-webapp-src/
 
