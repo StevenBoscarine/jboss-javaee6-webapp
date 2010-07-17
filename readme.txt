@@ -106,7 +106,10 @@
   ./asadmin start-domain domain1
 
  NOTE:
- NetBeans will start the Derby database automatically when it starts GlassFish.
+ NetBeans starts the Derby database automatically when it starts up GlassFish.
+ If you have the GlassFish Tools Eclipse plug-in, you have to enable this
+ feature. Select Window > Preferences > GlassFish Server Preferences and check
+ "Start JavaDB database process when Starting GlassFish Server"
 
  Now you can either deploy the target/jboss-javaee6-webapp-src.war through the
  web-based GlassFish admininstration console, or you can again use asadmin:
@@ -150,7 +153,7 @@
  already have an IDE project.
 
  If you created the project from the commandline using archetype:generate, then
- you need to bring the project into your IDE. If you are using NetBeans 6.8 or
+ you need to import the project into your IDE. If you are using NetBeans 6.8 or
  IntelliJ IDEA 9, then all you have to do is open the project as an existing
  project. Both of these IDEs recognize Maven 2 projects natively.
 
@@ -159,6 +162,9 @@
  to Eclipse (or use the Help > Eclipse Marketplace...) and install the
  m2eclipse plugin and required dependencies. Once that's installed, you'll be
  ready to import the project into Eclipse.
+
+ NOTE:
+ We strongly recommend Eclipse Helios (3.6) - http://www.eclipse.org/helios
 
  Select File > Import... and select "Existing Maven Projects" and navigate to
  your project directory. Click Finish and m2eclipse will take it from there.
@@ -178,6 +184,10 @@
 
  Once the project is imported into the IDE, you can execute the Maven commands
  through the IDE controls to deploy the application to a container.
+
+ To deploy to GlassFish from Eclipse, you'll need the GlassFish Tools Bundle,
+ available at the update site http://download.java.net/glassfish/eclipse/helios
+ or from the Help > Eclipse Marketplace...
 
  Downloading the sources and Javadocs
  ====================================
