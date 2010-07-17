@@ -226,7 +226,6 @@
                         <fileName>${project.build.directory}/${project.build.finalName}.war</fileName>
                         <!-- JNDI Datasource that connects to in-memory HSQLDB to demonstrate JPA -->
                         <fileName>src/main/resources-jbossas/default-ds.xml</fileName>
-                        <fileName>${project.build.directory}/${project.build.finalName}.war</fileName>
                      </fileNames>
                   </configuration>
                </plugin>
