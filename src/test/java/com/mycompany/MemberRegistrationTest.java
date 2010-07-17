@@ -24,7 +24,7 @@ public class MemberRegistrationTest
          .addClasses(Member.class, MemberRegistration.class, MemberRepository.class, MemberRepositoryProducer.class)
          .addLibraries(
                MavenArtifactResolver.resolve("org.slf4j:slf4j-api:1.5.10"),
-               MavenArtifactResolver.resolve("org.slf4j:slf4j-simple:1.5.10")
+               MavenArtifactResolver.resolve("org.slf4j:slf4j-jdk14:1.5.10")
          )
          .addWebResource("test-persistence.xml", "classes/META-INF/persistence.xml")
          .addWebResource(new ByteArrayAsset(new byte[0]), "beans.xml");
