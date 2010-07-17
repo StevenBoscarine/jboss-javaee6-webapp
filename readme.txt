@@ -10,22 +10,25 @@
  get your foot in the door developing with Java EE 6. This project is setup to
  allow you to create a compliant Java EE 6 application using JSF 2.0, CDI 1.0,
  EJB 3.1, JPA 2.0 and Bean Validation 1.0) that can run on a certified
- application server (Complete or Web Profile). It includes a persistence unit
- and some sample persistence and transaction code to help you get your feet wet
+ application server (Full or Web Profile). It includes a persistence unit and
+ some sample persistence and transaction code to help you get your feet wet
  with database access in enterprise Java. 
 
  System requirements
  ===================
 
  All you need to run this project is Java 5.0 (Java SDK 1.5) or greator and
- Maven 2.0.10 or greater. This application is setup to be run on a Java EE 6
- application server. We've tested it on GlassFish 3.0.1 and JBoss AS 6.0.0.M3.
+ Maven 2.0.10 or greater. However, we strongly recommend Java 6.0 and Maven 3.
+ This application is configured to be run on a Java EE 6 application server.
+ We've tested it on both GlassFish 3.0.1 and JBoss AS 6.0.0.M3.
 
- Please note that Maven 2 project needs to use the JBoss Nexus Maven repository
+ NOTE:
+ This project retrieves artifacts from the JBoss Community Maven repository
  because there are certain Java EE API JARs that are not yet publised to the
- Maven Central Repository (see https://jira.jboss.org/jira/browse/WELD-222)
- The testing framework used by the project, Arquillian, is also only available
- in the JBoss repository.
+ Maven Central Repository (see https://jira.jboss.org/jira/browse/WELD-222).
+ The integration testing framework used by the project, Arquillian, is also
+ only available in the JBoss Community Maven repository. This repository is a
+ superset of Maven central.
 
  Deploying the application
  =========================
@@ -34,7 +37,7 @@
 
   mvn package
 
- If you want To deploy the application on JBoss AS (standalone), make sure that
+ If you want to deploy the application on JBoss AS (standalone), make sure that
  your JBOSS_HOME environment variable points to a JBoss AS 6.0 installation.
 
  Alternatively, you can set the location of JBoss AS using the following
@@ -68,10 +71,12 @@
  This will deploy two artifacts, target/jboss-javaee6-webapp-src.war and
  default-ds.xml.
  
+ IMPORTANT:
+ Don't forget to deploy default-ds.xml!
+
  NOTE:
- If you deploy the WAR manually, don't forget to also deploy default-ds.xml!
- The default-ds.xml file installs a data source named jdbc/__default, so both
- JBoss AS and GlassFish have a data source with the same name.
+ The default-ds.xml file installs a data source named jdbc/__default, so that
+ both JBoss AS and GlassFish have a data source with the same name.
 
  You can also set jboss.home on the commandline:
 
@@ -105,11 +110,14 @@
   ./asadmin start-database
   ./asadmin start-domain domain1
 
+ IMPORTANT:
+ Don't forget to start the JavaDB database!
+
  NOTE:
- NetBeans starts the Derby database automatically when it starts up GlassFish.
- If you have the GlassFish Tools Eclipse plug-in, you have to enable this
- feature. Select Window > Preferences > GlassFish Server Preferences and check
- "Start JavaDB database process when Starting GlassFish Server"
+ NetBeans starts the database automatically when it starts up GlassFish. If you
+ have the GlassFish Tools Eclipse plug-in, you have to enable this feature.
+ Select Window > Preferences > GlassFish Server Preferences and check the
+ option "Start JavaDB database process when > Starting GlassFish Server"
 
  Now you can either deploy the target/jboss-javaee6-webapp-src.war through the
  web-based GlassFish admininstration console, or you can again use asadmin:
@@ -118,7 +126,7 @@
 
  To undeploy the application, run:
 
- ./asadmin undeploy jboss-javaee6-webapp-src
+  ./asadmin undeploy jboss-javaee6-webapp-src
 
  Running the Arquillian tests
  ============================
@@ -143,7 +151,7 @@
  Consult the Arquillian reference documentation to register profiles for any
  supported container.
 
- http://docs.jboss.org/arquillian/reference/latest/en-US/html/containers.html#d0e678
+  http://docs.jboss.org/arquillian/reference/latest/en-US/html/containers.html#d0e678
 
  Importing the project into an IDE
  =================================
@@ -180,7 +188,7 @@
 
  You can verify your configuration by referring to the Hibernate JPA documentation.
 
- http://docs.jboss.org/hibernate/stable/jpamodelgen/reference/en-US/html_single/#d0e319
+  http://docs.jboss.org/hibernate/stable/jpamodelgen/reference/en-US/html_single/#d0e319
 
  Once the project is imported into the IDE, you can execute the Maven commands
  through the IDE controls to deploy the application to a container.
