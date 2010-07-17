@@ -26,8 +26,7 @@
       
    <!-- This section is optional. We are allowing index.jsf to handle the root URL (i.e., /). -->
    <welcome-file-list>
-      <welcome-file>index.jsp</welcome-file>
-      <welcome-file>index.html</welcome-file>
+      <!-- Add additional welcome files here, if desired, for example:  <welcome-file>index.html</welcome-file> -->
       <welcome-file>index.jsf</welcome-file>
    </welcome-file-list>
 </web-app>
