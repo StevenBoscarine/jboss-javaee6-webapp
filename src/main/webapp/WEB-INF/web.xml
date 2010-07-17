@@ -5,7 +5,7 @@
       http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
    <!-- This is an optional parameter, but it makes troubleshooting errors much easier -->
-   <!-- You should delete it before final deployment -->
+   <!-- You should delete it before final deployment! -->
    <context-param>
       <param-name>javax.faces.PROJECT_STAGE</param-name>
       <param-value>Development</param-value>
@@ -24,8 +24,10 @@
       <url-pattern>*.jsf</url-pattern>
    </servlet-mapping>
       
-   <!-- This section is option. -->
+   <!-- This section is optional. We are allowing index.jsf to handle the root URL (i.e., /). -->
    <welcome-file-list>
+      <welcome-file>index.jsp</welcome-file>
+      <welcome-file>index.html</welcome-file>
       <welcome-file>index.jsf</welcome-file>
    </welcome-file-list>
 </web-app>
