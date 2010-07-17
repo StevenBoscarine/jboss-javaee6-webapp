@@ -24,7 +24,9 @@ public class MemberListProducer
    private List<Member> members;
 
    @Produces
-   @Named   //This annotation allows us to access this list via name "members" in facelets UI via EL. 
+   @Named
+   // This annotation allows us to access this list via name "members" in
+   // facelets UI via EL.
    public List<Member> getMembers()
    {
       return members;
@@ -41,7 +43,8 @@ public class MemberListProducer
       CriteriaBuilder cb = em.getCriteriaBuilder();
       CriteriaQuery<Member> criteria = cb.createQuery(Member.class);
       Root<Member> member = criteria.from(Member.class);
-      // replace "name" with Member_.name if the JPA metamodel has been generated
+      //Uncomment if you would like to try out typesafe criteria queries, a new feature in JPA 2.0.
+      // criteria.select(member).orderBy(cb.asc(member.get(Member_.name)));
       criteria.select(member).orderBy(cb.asc(member.get("name")));
       members = em.createQuery(criteria).getResultList();
    }
