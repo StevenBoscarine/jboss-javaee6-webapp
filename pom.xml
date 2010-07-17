@@ -248,7 +248,7 @@
             <dependency>
                <groupId>org.glassfish.extras</groupId>
                <artifactId>glassfish-embedded-all</artifactId>
-               <version>3.0.1-b19</version>
+               <version>3.0.1-b20</version>
                <scope>provided</scope>
             </dependency>
          </dependencies>
