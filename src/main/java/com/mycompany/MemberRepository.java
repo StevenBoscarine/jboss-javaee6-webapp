@@ -15,6 +15,4 @@ import javax.inject.Qualifier;
 @Qualifier
 @Target({ ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface MemberRepository
-{
-}
+public @interface MemberRepository{/*left blank intentionally*/}

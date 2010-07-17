@@ -25,18 +25,18 @@ public class MemberListProducer
 
    @Produces
    @Named
-   public List<Member> getMembers()
+   public List<Member> listAllMembers()
    {
       return members;
    }
 
    public void onMemberListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Member member)
    {
-      fetch();
+      retrieveAllMembersOrderedByName();
    }
 
    @PostConstruct
-   public void fetch()
+   public void retrieveAllMembersOrderedByName()
    {
       CriteriaBuilder cb = em.getCriteriaBuilder();
       CriteriaQuery<Member> criteria = cb.createQuery(Member.class);

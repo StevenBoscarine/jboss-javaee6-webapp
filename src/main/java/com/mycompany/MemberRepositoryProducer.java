@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
  */
 public class MemberRepositoryProducer
 {
+   @SuppressWarnings("unused")   //tell IDE to ignore warnings about em not being used.  
    @Produces
    @MemberRepository
    @PersistenceContext
