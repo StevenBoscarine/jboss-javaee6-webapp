@@ -98,7 +98,7 @@
       <!-- Remove if server provides slf4j; JBoss AS provides it; GlassFish provides it if you have the Hibernate JPA provider installed -->
       <dependency>
          <groupId>org.slf4j</groupId>
-         <artifactId>slf4j-simple</artifactId>
+         <artifactId>slf4j-jdk14</artifactId>
          <version>1.5.10</version>
          <scope>runtime</scope>
       </dependency>
