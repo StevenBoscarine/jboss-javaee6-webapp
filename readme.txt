@@ -172,14 +172,21 @@
  ready to import the project into Eclipse.
 
  NOTE:
- We strongly recommend Eclipse Helios (3.6) - http://www.eclipse.org/helios
+ We strongly recommend Eclipse 3.6 (Helios) - http://www.eclipse.org/helios
 
- Select File > Import... and select "Existing Maven Projects" and navigate to
- your project directory. Click Finish and m2eclipse will take it from there.
+ Select File > Import... and choose the Maven > Existing Maven Projects option.
+ Navigate to the root directory of your project. Eclipse should recognize the
+ Maven project and preselect it in the Project box. Click Finish and m2eclipse
+ will take it from there.
+
+ NOTE:
+ You cannot use the import option General > Existing Projects into Workspace
+ because Eclipse does not recognize Maven projects as Eclipse projects
+ natively. You must use the importer provided by m2eclipse as just described.
 
  Additional configuration is required to get Eclipse to generate the JPA
- metamodel. The archetype includes the necessary Eclipse config files in your project.
- To enable this feature, right click on the project and select:
+ metamodel. The archetype includes the necessary Eclipse config files in your
+ project.  To enable this feature, right click on the project and select:
 
  Properties > Java Compiler > Annotation Processing
 
