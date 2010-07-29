@@ -22,7 +22,7 @@
       <jboss.home>${env.JBOSS_HOME}</jboss.home>
       <jboss.domain>default</jboss.domain>
       <arquillian.version>1.0.0-SNAPSHOT</arquillian.version>
-      <jboss-javaee6-spec.version>1.0.0.Beta5</jboss-javaee6-spec.version>
+      <jboss-javaee6-spec.version>1.0.0.Beta7</jboss-javaee6-spec.version>
    </properties>
 
    <repositories>
