@@ -171,7 +171,8 @@
  ready to import the project into Eclipse.
 
  NOTE:
- We strongly recommend Eclipse 3.6 (Helios) - http://www.eclipse.org/helios
+ If you are using Eclipse as your IDE, we we strongly recommend that you use
+ Eclipse 3.6 (Helios) - http://www.eclipse.org/helios
 
  Select File > Import. . . and choose the Maven > Existing Maven Projects option.
  Navigate to the root directory of your project. Eclipse should recognize the
