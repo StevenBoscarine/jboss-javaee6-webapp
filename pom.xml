@@ -64,7 +64,6 @@
    </pluginRepositories>
 
    <dependencies>
-
       <dependency>
          <groupId>org.hibernate</groupId>
          <artifactId>hibernate-jpamodelgen</artifactId>
@@ -129,7 +128,6 @@
          <version>${arquillian.version}</version>
          <scope>test</scope>
       </dependency>
-
    </dependencies>
 
    <build>
@@ -244,7 +242,7 @@
                <version>${arquillian.version}</version>
                <scope>test</scope>
             </dependency>
-            <!-- This imports the Java EE 6 runtime provided by GlassFish Embedded -->
+            <!-- This imports the Java EE 6 runtime libraries provided by GlassFish Embedded -->
             <dependency>
                <groupId>org.glassfish.extras</groupId>
                <artifactId>glassfish-embedded-all</artifactId>
@@ -302,7 +300,7 @@
                <type>pom</type>
                <scope>provided</scope>
             </dependency>
-            <!-- need for org.jnp.interfaces.NamingContextFactory -->
+            <!-- needed for org.jnp.interfaces.NamingContextFactory -->
             <dependency>
                <groupId>org.jboss.jbossas</groupId>
                <artifactId>jboss-as-client</artifactId>

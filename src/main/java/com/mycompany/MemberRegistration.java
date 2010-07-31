@@ -8,10 +8,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.transaction.UserTransaction;
-import javax.ejb.Stateful;
 import org.slf4j.Logger;
 
-// @Stateful // Adding this annotation eliminates need for manual transaction demarcation
+// @javax.ejb.Stateful// Adding this annotation eliminates need for manual transaction demarcation
 @Model
 public class MemberRegistration
 {
@@ -22,8 +21,8 @@ public class MemberRegistration
    @MemberRepository
    private EntityManager em;
 
-   //@Inject
-   //private UserTransaction utx;
+   @Inject
+   private UserTransaction utx;
 
    @Inject
    private Event<Member> memberEventSrc;
