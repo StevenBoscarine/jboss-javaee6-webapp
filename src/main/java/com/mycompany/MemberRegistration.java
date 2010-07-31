@@ -8,9 +8,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.transaction.UserTransaction;
+import javax.ejb.Stateful;
 import org.slf4j.Logger;
 
-//@Stateful // enable when JBoss AS M4 is out
+// @Stateful // Adding this annotation eliminates need for manual transaction demarcation
 @Model
 public class MemberRegistration
 {
@@ -21,8 +22,11 @@ public class MemberRegistration
    @MemberRepository
    private EntityManager em;
 
+   //@Inject
+   //private UserTransaction utx;
+
    @Inject
-   private UserTransaction utx;
+   private Event<Member> memberEventSrc;
    
    private Member newMember;
 
@@ -32,12 +36,11 @@ public class MemberRegistration
    {
       return newMember;
    }
-   @Inject
-   private Event<Member> memberEventSrc;
 
    public void register() throws Exception
    {
       log.info("Registering " + newMember.getName());
+      // UserTransaction only needed when bean is not an EJB
       utx.begin();
       em.joinTransaction();
       em.persist(newMember);

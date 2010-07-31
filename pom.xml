@@ -218,7 +218,7 @@
                <plugin>
                   <groupId>org.codehaus.mojo</groupId>
                   <artifactId>jboss-maven-plugin</artifactId>
-                  <version>1.4.1-SNAPSHOT</version>
+                  <version>1.4.1</version>
                   <configuration>
                      <jbossHome>${jboss.home}</jbossHome>
                      <serverName>${jboss.domain}</serverName>
@@ -306,7 +306,7 @@
             <dependency>
                <groupId>org.jboss.jbossas</groupId>
                <artifactId>jboss-as-client</artifactId>
-               <version>6.0.0.20100429-M3</version>
+               <version>6.0.0.20100721-M4</version>
                <type>pom</type>
                <scope>test</scope>
             </dependency>
