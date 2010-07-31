@@ -192,7 +192,7 @@
  Check "Enable annotation processing" then click OK and OK again when your are
  prompted to run a project build.
 
- You can verify your configuration by referring to the Hibernate JPA documentation.
+ This configuration is described in further detail in the Hibernate JPA documentation:
 
  - http://docs.jboss.org/hibernate/stable/jpamodelgen/reference/en-US/html_single/#d0e319
 
