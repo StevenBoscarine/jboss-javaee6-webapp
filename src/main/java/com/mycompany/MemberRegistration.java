@@ -11,6 +11,8 @@ import javax.transaction.UserTransaction;
 import org.slf4j.Logger;
 
 // @javax.ejb.Stateful// Adding this annotation eliminates need for manual transaction demarcation
+
+//The @Model stereotype is a convenience mechanism to make this bean request-scoped and give it an EL name.
 @Model
 public class MemberRegistration
 {
@@ -26,7 +28,7 @@ public class MemberRegistration
 
    @Inject
    private Event<Member> memberEventSrc;
-   
+
    private Member newMember;
 
    @Produces
