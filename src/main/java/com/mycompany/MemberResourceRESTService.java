@@ -16,7 +16,6 @@ import javax.ws.rs.PathParam;
 @RequestScoped
 public class MemberResourceRESTService
 {
-   private static final String ALL_MEMBERS = "select m from Member m order by m.name";
    @Inject
    @MemberRepository
    private EntityManager em;
@@ -24,8 +23,11 @@ public class MemberResourceRESTService
    @GET
    public List<Member> listAllMembers()
    {
-      @SuppressWarnings("unchecked") // Force IDE to ignore warnings about "genericizing" the results of this query
-      final List<Member> results = em.createQuery(ALL_MEMBERS).getResultList();
+      // Use @SupressWarnings to force IDE to ignore warnings about "genericizing" the results of this query
+      @SuppressWarnings("unchecked")
+      // We recommend centralizing inline queries such as this one into @NamedQuery annotations on the @Entity class
+      // as described in the named query blueprint: https://blueprints.dev.java.net/bpcatalog/ee5/persistence/namedquery.html
+      final List<Member> results = em.createQuery("select m from Member m order by m.name").getResultList();
       return results;
    }
 
