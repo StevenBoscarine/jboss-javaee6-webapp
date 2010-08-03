@@ -8,7 +8,7 @@ import java.io.File;
  * 
  * <p>This approach is an interim solution for Maven projects
  * until the open feature request to add formally add artifacts
- * to a test (ARQ-66) is implementated.</p>
+ * to a test (<a href="https://jira.jboss.org/browse/ARQ-66">ARQ-66</a>) is implementated.</p>
  *
  * <p>The testCompile goal will resolve any test dependencies and
  * put them in your local Maven repository. By the time the test
@@ -21,14 +21,31 @@ import java.io.File;
  * WebArchive war = ShrinkWrap.create("test.war", WebArchive.class)
  *     .addLibrary(MavenArtifactResolver.resolve("commons-lang:commons-lang:2.5"));
  * </pre>
+
+ * <p>If you are using an alternate local Maven repository, you need to pass it
+ * to the Maven surefire plugin using the following stanza in the plugin
+ * configuration element:</p>
+ *
+ * <pre>
+ * &lt;systemProperties&gt;
+ *    &lt;property&gt;
+ *       &lt;name&gt;maven.repo.local&lt;/name&gt;
+ *       &lt;value&gt;${maven.repo.local}&lt;/value&gt;
+ *    &lt;/property&gt;
+ * &lt;/systemProperties&gt;
+ * </pre>
+ *
+ * <p>Another approach to pull in a library is to add packages recursively from the
+ * root library package.</p>
  *
  * @author Dan Allen
  */
 public class MavenArtifactResolver
 {
    private static final String LOCAL_MAVEN_REPO =
-         System.getProperty("user.home") + File.separatorChar +
-         ".m2" + File.separatorChar + "repository";
+         System.getProperty("maven.repo.local") != null ? System.getProperty("maven.repo.local") :
+               (System.getProperty("user.home") + File.separatorChar +
+               ".m2" + File.separatorChar + "repository");
 
    public static File resolve(String groupId, String artifactId, String version)
    {
