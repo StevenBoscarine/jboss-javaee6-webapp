@@ -233,7 +233,7 @@
 
       <profile>
          <!-- An optional Arquillian testing profile that executes tests in GlassFish Embedded -->
-         <!-- Run with 'mvn test -Pglassfish-embedded-3' -->
+         <!-- Run with 'mvn clean test -Pglassfish-embedded-3' -->
          <id>glassfish-embedded-3</id>
          <dependencies>
             <dependency>
@@ -282,7 +282,7 @@
       </profile>
       <profile>
          <!-- An optional Arquillian testing profile that executes tests in a remote JBoss AS instance -->
-         <!-- Run with 'mvn test -Pjbossas-remote-6' -->
+         <!-- Run with 'mvn clean test -Pjbossas-remote-6' -->
          <id>jbossas-remote-6</id>
          <dependencies>
             <dependency>
