@@ -10,9 +10,10 @@ import javax.persistence.EntityManager;
 import javax.transaction.UserTransaction;
 import org.slf4j.Logger;
 
-// @javax.ejb.Stateful// Adding this annotation eliminates need for manual transaction demarcation
-
-//The @Model stereotype is a convenience mechanism to make this bean request-scoped and give it an EL name.
+// Adding the @Stateful annotation eliminates need for manual transaction demarcation
+// @javax.ejb.Stateful
+// The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an EL name
+// Read more about the @Model stereotype in this FAQ: http://seamframework.org/Documentation/WhatIsThePurposeOfTheModelAnnotation
 @Model
 public class MemberRegistration
 {
