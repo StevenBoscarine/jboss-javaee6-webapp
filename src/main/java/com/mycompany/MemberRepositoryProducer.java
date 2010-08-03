@@ -3,6 +3,7 @@ package com.mycompany;
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 /**
  * This class uses CDI to produce EntityManager instances qualified that are
  * qualified as @MemberRepository. Therefore, to inject an instance, @Inject
@@ -10,7 +11,8 @@ import javax.persistence.PersistenceContext;
  */
 public class MemberRepositoryProducer
 {
-   @SuppressWarnings("unused") // tell IDE to ignore warnings about em not being used
+   // use @SuppressWarnings to tell IDE to ignore warnings about field not being referenced directly
+   @SuppressWarnings("unused")
    @Produces
    @MemberRepository
    @PersistenceContext
